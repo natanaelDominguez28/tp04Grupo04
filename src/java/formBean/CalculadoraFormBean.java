@@ -32,23 +32,8 @@ public class CalculadoraFormBean implements Serializable{
       
     }
     
-    public double calcularOperacion(double numeroA, double numeroB, char operador){
-        double resultado = 0;
-       // char opc=getOperador();
-        switch(operador){
-                case '+': resultado= getCalculadora().sumar(numeroA, numeroB); 
-                break;
-                case '-': resultado= getCalculadora().restar(numeroA, numeroB);
-                break;
-                case '*': resultado=getCalculadora().multiplicar(numeroA, numeroB);
-                break;
-                case '/': resultado= calculadora.dividir(numeroA, numeroB);
-                break;
-                case '^': resultado=calculadora.potencia(numeroA, numeroB);
-                break;
-            }
-        return resultado; 
-        //return calculadora.realizarOperacion(numeroA, numeroB, operador);
+    public double calcularOperacion(){
+        return calculadora.realizarOperacion(numeroA, numeroB, operador);
     }
     
     /*public double sumar(){

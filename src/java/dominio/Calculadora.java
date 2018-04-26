@@ -12,10 +12,11 @@ import java.io.Serializable;
  * @author Lore
  */
 public class Calculadora implements Serializable{
-    //private double numeroA;
-   // private double numeroB;
+    private double numeroA;
+    private double numeroB;
+    private char operador;
     
-    /*public double realizarOperacion(double numeroA, double numeroB, char operador){
+    public double realizarOperacion(double numeroA, double numeroB, char operador){
         double resultado = 0;
         
         switch(operador){
@@ -36,7 +37,7 @@ public class Calculadora implements Serializable{
                 break;
             }
         return resultado;    
-    }*/
+    }
     
     public double sumar(double numeroA, double numeroB){
         return numeroA+numeroB;
@@ -81,5 +82,29 @@ public class Calculadora implements Serializable{
     public void setNumeroB(double numeroB) {
         this.numeroB = numeroB;
     }*/
+
+    public double getNumeroA() {
+        return numeroA;
+    }
+
+    public void setNumeroA(double numeroA) {
+        this.numeroA = numeroA;
+    }
+
+    public double getNumeroB() {
+        return numeroB;
+    }
+
+    public void setNumeroB(double numeroB) {
+        this.numeroB = numeroB;
+    }
+
+    public char getOperador() {
+        return operador;
+    }
+
+    public void setOperador(char operador) {
+        this.operador = operador;
+    }
     
 }
