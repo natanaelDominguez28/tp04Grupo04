@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Registo de Numero</title>
+    </h:head>
+    <h:body>
+        <p:panel id="pnlRegistroDeNumero" header="REGISTRO DE NÚMEROS">
+            <h:form id="frmNumeros">
+                <p:panelGrid id="tblNumero" columns="2">
+                    <p:outputLabel id="lblNumero" value="Ingrese un número: "/>
+                    <p:inputNumber id="txtNumero" thousandSeparator="." 
+                                   decimalPlaces="2" decimalSeparator=","
+                                   value="#{numeroFormBean.numero}"/>
+                    <p:outputLabel/>
+                    <p:commandButton id="btnRegistrarNumero" value="GUARDAR NÚMERO"
+                                     action="#{numeroFormBean.registrarNumero()}"
+                                     update="tblNumeroRegistrado"/>
+                </p:panelGrid>
+                <p:separator/>
+
+                <p:dataGrid id="tblNumeroRegistrado" var="num" value="#{numeroFormBean.lista.numeros}" columns="1">
+                    <p:outputLabel id="lblNumeroRegistrado" value="número: #{num.valor}"/>
+                </p:dataGrid>
+                <p:separator/>
+                <p:panelGrid id="pnlMayorMenorYpromedio" columns="2">
+                    <p:commandButton id="btnCalcularMayor" value="MAYOR" update="lblMayor" />
+
+                    <p:outputLabel id="lblMayor" value="El mayor es: #{numeroFormBean.obtenerMayor()}"/>
+                    <p:commandButton id="btnCalcularMenor" value="MENOR" update="lblMenor"/>
+
+                    <p:outputLabel id="lblMenor" value="El menor es: #{numeroFormBean.obtenerMenor()}"/>
+                    <p:commandButton id="btnCalcularPromedio" value="PROMEDIO" update="lblPromedio"  />
+
+                    <p:outputLabel id="lblPromedio" value="El promedio es: #{numeroFormBean.obtenerPromedio()}"/>
+                </p:panelGrid>
+
+
+
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>
+
