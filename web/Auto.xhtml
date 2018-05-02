@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Autos</title>
+    </h:head>
+    <h:body>
+        <h:form id="frmAutos">
+            <p:dataTable id="tblAutos" value="#{autoFomBean.listaAutos}" var="auto">
+                <p:column headerText="Patente">
+                    <p:outputLabel value="#{auto.patente}"/>
+                </p:column>
+                
+                <p:column headerText="Marca">
+                    <p:outputLabel value="#{auto.marca}"/>
+                </p:column>
+                
+                 <p:column headerText="Modelo">
+                    <p:outputLabel value="#{auto.modelo}"/>
+                </p:column>
+                
+                <p:column headerText="Color">
+                    <p:outputLabel value="#{auto.color}"/>
+                </p:column>
+                
+                <p:column headerText="TipoCombustible">
+                    <p:outputLabel value="#{auto.tipoCompustibe}"/>
+                </p:column>
+                                
+                <p:column headerText="Acciones">
+                    <p:commandButton id="btnModificar" value="Modificar"
+                                     actionListener="#{autoFomBean.asignarAuto(auto)}"
+                                     update=":dlgModificar"
+                                     oncomplete="PF('dlgModificarAuto').show()">
+                    </p:commandButton >
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        
+        <p:dialog id="dlgModificar" header="ModificarAuto" modal="true" widgetVar="dlgModificarAuto">
+            <h:form id="frmModificar">
+                <h:panelGrid columns="2">
+                    <p:outputLabel for="txtPatente" value="Patente"/>
+                    <p:inputText id='txtPatente' value="#{autoFomBean.auto.patente}"/>
+                    
+                    <p:outputLabel for="txtMarca" value="Marca"/>
+                    <p:inputText id="txtMarca" value="#{autoFomBean.auto.marca}"/>
+     
+                    <p:outputLabel for="txtModelo" value="Modelo"/>
+                    <p:inputText id="txtModelo" value="#{autoFomBean.auto.modelo}"/>
+                    
+                      <p:outputLabel for="txtColor" value="Color"/>
+                      <p:inputText id="txtColor" value="#{autoFomBean.auto.color}"/>
+                    
+                    <p:outputLabel for="txtTCombus" value="Tipo De Combustible"/>
+                    <p:inputText id="txtTCombus" value="#{autoFomBean.auto.tipoCompustibe}"/>
+                </h:panelGrid>
+                <p:commandButton id="btnGuardar" value="Guardar"
+                                 actionListener="#{autoFomBean.guardarCambios()}"
+                                     update=":frmAutos:tblAutos"
+                                     oncomplete="PF('dlgModificarAuto').hide();">
+                </p:commandButton >
+            </h:form>
+        </p:dialog>
+        
+    </h:body>
+</html>
+
