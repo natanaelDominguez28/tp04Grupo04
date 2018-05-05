@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Numeros</title>
+    </h:head>
+    <h:body>
+        <p:panel id="pnlPrincipal" >
+            <h:form id="FrmPrincipal"  >
+                <p:panelGrid id="pnlgPrincipal" columns="2">
+                    <p:outputLabel id="lblingreso" value="Ingrese el numero que desea agregar en la lista"/>
+                    <p:inputNumber id="inputnumber" decimalPlaces="0" thousandSeparator="." value="#{punto2NroFormBean.gestor.numero}"/>
+                    <p:outputLabel/>
+                    <p:commandButton id="btnAgregar" value="Agregar" update="lista" actionListener="#{punto2NroFormBean.gestor.agregarNumero()}"/>
+                    <p:commandButton id="btnmayor" value="Mostrar numero Mayor" update="outmayor"/>
+                    <p:outputLabel id="outmayor" value="#{punto2NroFormBean.gestor.obtenerMayor()}"/>
+                    <p:commandButton id="btnmenor" value="Mostrar numero Menor" update="outmenor"/>
+                    <p:outputLabel id="outmenor" value="#{punto2NroFormBean.gestor.obtenerMenor()}"/>
+                    <p:commandButton id="btnpromedio" value="Mostrar el Promedio" update="outpromedio"/>
+                    <p:outputLabel id="outpromedio" value="#{punto2NroFormBean.gestor.calcularPromedio()}"/>
+                </p:panelGrid>
+                <p:separator/>
+                <p:dataTable id="lista" value="#{punto2NroFormBean.gestor.numeros}" var="num" style="width: 200px">
+                    <p:column headerText="Nuumero registrado" width="145" >
+                        <p:outputLabel value="#{num}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>
+
