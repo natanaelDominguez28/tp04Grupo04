@@ -33,7 +33,7 @@ public class ConversorDeTemperatura implements Serializable{
     }
     
     public double convertirFahrenheitAkelvin(){
-        return (numero+459.67)*(5/9);
+          return (numero-273.15)*1.8+32;
     }
     
     public double convertirKelvinAgradosCelsius(){
@@ -41,7 +41,7 @@ public class ConversorDeTemperatura implements Serializable{
     }
     
     public double convertirKelvinAfahrenheit(){
-        return (numero*1.8)-459.67;
+        return numero-32+273.15/1.8;
     }
 
     public double getNumero() {
