@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package punto4;
+package punto4.aplicacion.modelo.dominio;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Ahorcado implements Serializable{
 
-    private String palabraAdivinar;
+   private String palabraAdivinar;
     private String ayudaPalabra;
     private int intentos;
     private char[] palabraAhorcado;

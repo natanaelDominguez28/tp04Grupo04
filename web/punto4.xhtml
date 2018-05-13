@@ -7,19 +7,21 @@
         <title>Juego del ahorcado</title>
     </h:head>
     <h:body>
-        <p:panel id="pnlAhorcado"
-                 header="JUEGO DEL AHORCADO">
+        
+        <p:panel id="pnlJuegoAhorcado"
+                       header="JUEGO DEL AHORCADO">
             <h:form id="frmAhorcado">
                 <h:panelGrid id="grdJuego" 
                              columns="4"
                              cellpadding="2">
                     <p:dataGrid columns="10" 
                                 id="tblPalabraAhorcado" 
-                                value="#{juegoAhorcadoFormBean.juegoAhorcadoBean.juegoAhorcado.palabraAhorcadoFormat}" 
-                                var="c"
-                                emptyMessage="Ingrese Palabra y presione JUGAR ->>">    
+                                value="#{ahorcadoFormBean.juegoAhorcado.palabraAhorcadoFormat}" 
+                                var="palabra"
+                                emptyMessage="Ingrese Palabra y presione  dos veces JUGAR ->>">   
+                        
                         <p:panelGrid columns="2">
-                            <p:outputLabel value ="#{c}" />
+                            <p:outputLabel value ="#{palabra}" />
                         </p:panelGrid>   
                     </p:dataGrid>
                     
@@ -27,12 +29,12 @@
                     <p:password id="txtPalabraParaAdivinar"
                                 required="true"
                                 maxlength="10" size="12"
-                                disabled="#{juegoAhorcadoFormBean.componenteDeshabilitado}"
-                                value="#{juegoAhorcadoFormBean.palabraIngresada}"/>
+                                disabled="#{ahorcadoFormBean.componenteDeshabilitado}"
+                                value="#{ahorcadoFormBean.palabraIngresada}"/>
                     
                     <p:commandButton value="Jugar"
-                                     disabled="#{juegoAhorcadoFormBean.componenteDeshabilitado}"
-                                     actionListener="#{juegoAhorcadoFormBean.empezarJuego()}"
+                                     disabled="#{ahorcadoFormBean.componenteDeshabilitado}"
+                                     actionListener="#{ahorcadoFormBean.empezarJuego()}"
                                      update="frmAhorcado"/>
 
                     <p:panelGrid columns="3">
@@ -40,20 +42,20 @@
                         <p:inputText id="txtCaracterIngresado"
                                      maxlength="1" required="true"
                                      size="1"
-                                     disabled="#{juegoAhorcadoFormBean.componenteDeshabilitado eq false}"
-                                     value="#{juegoAhorcadoFormBean.letraIngresada}"/>
+                                     disabled="#{ahorcadoFormBean.componenteDeshabilitado eq false}"
+                                     value="#{ahorcadoFormBean.letraIngresada}"/>
                         <p:commandButton value="ok" 
-                                         actionListener="#{juegoAhorcadoFormBean.controlarLetra()}"
-                                         disabled="#{juegoAhorcadoFormBean.componenteDeshabilitado eq false}"
+                                         actionListener="#{ahorcadoFormBean.controlarLetra()}"
+                                         disabled="#{ahorcadoFormBean.componenteDeshabilitado eq false }"
                                          update="frmAhorcado" />
                     </p:panelGrid>
                     
-                    <p:outputLabel>Intentos: #{juegoAhorcadoFormBean.juegoAhorcadoBean.juegoAhorcado.intentos}"</p:outputLabel>
+                    <p:outputLabel>Intentos: #{ahorcadoFormBean.juegoAhorcado.intentos}"</p:outputLabel>
                     
                 </h:panelGrid>
                 <p:messages id="mensajes"/>
+                
             </h:form>
         </p:panel>
     </h:body>
 </html>
-
