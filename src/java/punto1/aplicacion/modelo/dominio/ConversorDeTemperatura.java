@@ -13,28 +13,43 @@ import java.io.Serializable;
  */
 public class ConversorDeTemperatura implements Serializable{
     
-    public double convertirGradosCelsiusAfahrenheit(double valorTemperatura){
-        return (valorTemperatura*1.8)+32;
+    private double numero;
+    
+    public void asignarUnValor(double num){
+        this.setNumero(num);
     }
     
-    public double convertirGradosCelsiusAkelvin(double valorTemperatura){
-        return valorTemperatura+273.15;
+    public double obtenerCelsiusDeFahrenheit(){
+        return 1.8*numero+32;
     }
     
-    /*public double convertirFahrenheitAgradosCelsius(double valorTemperatura){
-        return (valorTemperatura-32)*(5/9);
+    public double obtenerCelsiusDeKelvin(){
+        return numero+273.15;
     }
     
-    public double convertirFahrenheitAkelvin(double valorTemperatura){
-        return (valorTemperatura+459.67)*(5/9);
+    
+    public double convertirFahrenheitAgradosCelsius(){
+        return (numero-32)*(5/9);
     }
     
-    public double convertirKelvinAgradosCelsius(double valorTemperatura){
-        return valorTemperatura-273.15;
+    public double convertirFahrenheitAkelvin(){
+        return (numero+459.67)*(5/9);
     }
     
-    public double convertirKelvinAfahrenheit(double valorTemperatura){
-        return (valorTemperatura*1.8)-459.67;
-    }*/
+    public double convertirKelvinAgradosCelsius(){
+        return numero-273.15;
+    }
+    
+    public double convertirKelvinAfahrenheit(){
+        return (numero*1.8)-459.67;
+    }
+
+    public double getNumero() {
+        return numero;
+    }
+
+    public void setNumero(double numero) {
+        this.numero = numero;
+    }
     
 }

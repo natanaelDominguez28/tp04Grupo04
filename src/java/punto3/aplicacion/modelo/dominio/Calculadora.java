@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dominio;
+package punto3.aplicacion.modelo.dominio;
 
 import java.io.Serializable;
 
@@ -20,20 +20,15 @@ public class Calculadora implements Serializable{
         double resultado = 0;
         
         switch(operador){
-                case '+': resultado= numeroA + numeroB; 
+                case '+': resultado=sumar(numeroA, numeroB); 
                 break;
-                case '-': resultado= numeroA - numeroB;
+                case '-': resultado=restar(numeroA, numeroB);
                 break;
-                case '*': resultado=numeroA * numeroB;
+                case '*': resultado=multiplicar(numeroA, numeroB);
                 break;
-                case '/': resultado= numeroA / numeroB;
+                case '/': resultado=dividir(numeroA, numeroB);
                 break;
-                case '^': {
-                    resultado = 1;
-                        for (int i =0 ; i<numeroB; i++){
-                            resultado = resultado * numeroA;             
-                        }
-                }
+                case '^': resultado=potencia(numeroA, numeroB);
                 break;
             }
         return resultado;    
@@ -52,16 +47,20 @@ public class Calculadora implements Serializable{
     }
 
     public double dividir(double numeroA, double numeroB) {
-
-        return numeroA / numeroB;
+        if(numeroB>0){
+            return numeroA / numeroB;
+        }else{
+            return 0;
+        }  
     }
     
     public double potencia(double numeroA , double numeroB){
-        double resultado = 1;
-        for (int i =0 ; i<numeroB; i++){
+        double resultado;
+        /*for (int i =0 ; i<numeroB; i++){
             resultado = resultado * numeroA;
         
-        }
+        }*/
+        resultado=Math.pow(numeroA, numeroB);
      return resultado;       
     }
     

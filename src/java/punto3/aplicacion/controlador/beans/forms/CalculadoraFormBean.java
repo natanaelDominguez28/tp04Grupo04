@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package formBean;
+package punto3.aplicacion.controlador.beans.forms;
 
-import dominio.Calculadora;
+import punto3.aplicacion.modelo.dominio.Calculadora;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;

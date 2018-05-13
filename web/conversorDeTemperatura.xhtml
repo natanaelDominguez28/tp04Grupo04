@@ -1,31 +1,37 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
+<html  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+
     <h:head>
-        <title>Conversor de Temperaturas</title>
+        <title>tp4punto1</title>
     </h:head>
     <h:body>
-        <p:panel id="pnlConversorDeTemperatura" header="Conversor de Temperaturas">
-            <h:form id="frmConversorDeTemperatura">
-                <p:panelGrid id="tblConversorDeTemperatura" columns="2">
-                    <p:outputLabel id="lblTemperatura" value="Ingrese valor de temperatura: "/>
-                    <p:inputNumber id="txtTemperatura" decimalPlaces="2" 
-                                   decimalSeparator="," thousandSeparator="."
-                                   value="#{conversorDeTemperaturaFormBean.temperatura}"/>
-                    
-                    <p:commandButton id="btnConvertirAfahrenheit" value="Convertir a Fahrenheit"
-                                     update="lblResultadoFahrenheit"/>
-                    <p:outputLabel id="lblResultadoFahrenheit" value="#{conversorDeTemperaturaFormBean.obtenerTemperaturaEnFahrenheit()} °F"/>
-                    
-                    <p:commandButton id="btnConvertirAkelvin" value="Convertir a Kelvin"
-                                     update="lblResultadoKelvin"/>
-                    <p:outputLabel id="lblResultadoKelvin" value="#{conversorDeTemperaturaFormBean.obtenerTemperaturaEnKelvin()} °K"/>
-                </p:panelGrid>
-                
-            </h:form>
-        </p:panel>
+        <h:form id="frmConversor">
+            <h:panelGrid columns="2">
+                <p:outputLabel value="Ingrese numero: "/>
+                <p:inputText value="#{conversorDeTemperaturaFormBean.n}"/>
+            </h:panelGrid>
+            <p:panelGrid columns="4">
+                <p:outputLabel value="de"/>
+                <p:selectOneMenu value="#{conversorDeTemperaturaFormBean.unidadOrigen}">
+                    <f:selectItem itemLabel="Celsius" itemValue="C" />
+                    <f:selectItem itemLabel="Fahrenheit" itemValue="F"/>
+                    <f:selectItem itemLabel="Kelvin" itemValue="K"/>
+                </p:selectOneMenu>  
+                <p:outputLabel value="a"/>
+                <p:selectOneMenu value="#{conversorDeTemperaturaFormBean.unidadDestino}">
+                    <f:selectItem itemLabel="Celsius" itemValue="C" />
+                    <f:selectItem itemLabel="Fahrenheit" itemValue="F"/>
+                    <f:selectItem itemLabel="Kelvin" itemValue="K"/>
+                </p:selectOneMenu>
+            </p:panelGrid>
+            <p:commandButton value="Convertir" update="lblResultado"/>
+            <p:outputLabel id="lblResultado" value="El  resultado es #{conversorDeTemperaturaFormBean.convertirUnidades()}"/>
+        </h:form>
+        
     </h:body>
 </html>
 
