@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Lista de libros</title>
+    </h:head>
+    <h:body>
+        
+        <h:form id="frmLibros">
+            <p:growl id="growl"></p:growl>
+            <p:panelGrid columns="2" >
+                <p:outputLabel value="Isbn" for="txt1"/>
+                <p:inputText id="txt1" value="#{punto8FormBean.gestorLibro.libro.isbn}" />
+                
+                <p:outputLabel value="Titulo" for="txt2"/>
+                <p:inputText id="txt2" value="#{punto8FormBean.gestorLibro.libro.titulo}" />
+                
+                 <p:outputLabel value="Autor"/> 
+                 <p:selectOneMenu value="#{punto8FormBean.gestorLibro.libro.autor}">
+                     <f:selectItem itemLabel="J.K.Rowling" itemValue="J.K.Rowling" />
+                     <f:selectItem itemLabel="George R.R.Martin" itemValue="George R.R.Martin"/>
+                     <f:selectItem itemLabel="Richard Matheson"  itemValue="Richard Matheson"/>
+                </p:selectOneMenu>
+                 
+                <p:outputLabel value="Precio" for="txt4" />
+                <p:inputText id="txt4" value="#{punto8FormBean.gestorLibro.libro.precio}"/>
+                
+                <p:commandButton id="btnAgregar" value="Agregar" 
+                                 actionListener="#{punto8FormBean.gestorLibro.agregarLibro()}"
+                                 update="tblLibros frmLibros"/>
+                
+            </p:panelGrid>
+            
+            <p:panelGrid columns="3" >
+                <p:outputLabel value="Ingrese nombre del autor a buscar"/>
+                <p:inputText id="txt5" value="#{punto8FormBean.gestorLibro.autorBuscado}" />
+                <p:commandButton id="btnBuscar" value="Buscar"
+                                 actionListener="#{punto8FormBean.gestorLibro.buscarLibroPorAutor()}"
+                                 update="tblLibros"/>
+
+            </p:panelGrid>
+            <p:panel> 
+            <p:dataTable id="tblLibros" value="#{punto8FormBean.gestorLibro.listaLibro}" 
+                         var="libro"> 
+                    <p:column headerText="Isbn">
+                        <p:outputLabel value="#{libro.isbn}"/>
+                    </p:column>
+                
+                    <p:column headerText="Titulo">
+                        <p:outputLabel value="#{libro.titulo}"/>
+                    </p:column>
+                
+                    <p:column headerText="Autor">
+                        <p:outputLabel value="#{libro.autor}"/>
+                    </p:column>
+                
+                    <p:column headerText="Precio">
+                        <p:outputLabel value="#{libro.precio}"/>
+                    </p:column>
+                </p:dataTable>
+                </p:panel>
+        </h:form>
+    </h:body>
+</html>
