@@ -6,14 +6,10 @@
         <title>Datos del Profesor</title>
     </h:head>
     <h:body>
-        <h:panelGrid columns="2">
-                     <h:outputLabel value="Legajo Registrado:  "/>
-                     <h:outputLabel value="#{profesorBean.profesor.legajo}"/>
-                     <h:outputLabel value="Nombre Registrado:  "/>
-                     <h:outputLabel value="#{profesorBean.profesor.nombre}"/>
-                     <h:outputLabel value="Apellido Registrado:  "/>
-                     <h:outputLabel value="#{profesorBean.profesor.apellido}"/>
-            
-            </h:panelGrid>
+      Legajo: #{profesorFormBean.profesorBean.profesor.legajo} <br />
+        Apellido: #{profesorFormBean.profesorBean.profesor.apellido} <br />
+        Nombres: #{profesorFormBean.profesorBean.profesor.nombre}<br />
+        <h:outputText value="DNI:"></h:outputText> #{profesorFormBean.profesorBean.profesor.dni} <br />   
+        Fecha Nacimiento: #{profesorFormBean.profesorBean.profesor.fechaNacimiento}
     </h:body>
 </html>

@@ -7,35 +7,21 @@ import java.io.Serializable;
  * @author Emanuel L.
  */
 public class Libro implements Serializable{
-    private String isbn;
+     private String isbn;
     private String titulo;
     private String autor;
     private double precio;
     
-    
     public Libro(){
     }
-
-    public Libro(String isbn,String titulo,String autor,double precio){
-        this.isbn=isbn;
-        this.titulo=titulo;
-        this.autor=autor;
-        this.precio=precio;
-    }
-   
     
-    
-    
-    public String getIsbn() {
-        return isbn;
-    }
-
-    /**
-     * @param isbn the isbn to set
-     */
-    public void setIsbn(String isbn) {
+    public Libro(String isbn, String titulo, String autor, double precio){
         this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.precio = precio;
     }
+ 
 
     /**
      * @return the titulo
@@ -79,8 +65,18 @@ public class Libro implements Serializable{
         this.precio = precio;
     }
 
-    
-    
-    
+    /**
+     * @return the iSBN
+     */
+    public String getIsbn() {
+        return isbn;
+    }
+
+    /**
+     * @param isbn the iSBN to set
+     */
+    public void setisbn(String isbn) {
+        this.isbn = isbn;
+    }
     
 }

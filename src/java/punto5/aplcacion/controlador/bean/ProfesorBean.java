@@ -8,14 +8,15 @@ package punto5.aplcacion.controlador.bean;
 import punto5.aplicacion.modelo.dominio.Profesor;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
+
 
 /**
  *
  * @author Lore
  */
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class ProfesorBean implements Serializable{
     private Profesor profesor;
     

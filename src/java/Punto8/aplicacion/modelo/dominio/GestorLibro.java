@@ -2,82 +2,82 @@ package Punto8.aplicacion.modelo.dominio;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
  * @author Emanuel L.
  */
 public class GestorLibro implements Serializable{
-    private Libro libro = new Libro();
-    private ArrayList<Libro> listaLibro = new ArrayList<Libro>();
-    private ArrayList<Libro> listaLibroBuscado = new ArrayList<Libro>();
-    private String autorBuscado;
-
+    private Libro libro;
+    private List<Libro> libros;
+    private List<Libro> librosBuscados;
     
-    public GestorLibro (){
-        this.libro=new Libro();
-        this.listaLibro=new ArrayList<Libro>();
-        
-        listaLibro.add(new Libro("A123", "Harry Potter", "J.K.Rowling", 712));
-        listaLibro.add(new Libro("B777", "Games of Thrones", "George R.R.Martin", 4520));
-        listaLibro.add(new Libro("C453", "Soy Leyenda", "Richard Matheson", 320));
+    public GestorLibro(List<Libro> libros) {
+        this.libros = libros;
     }
     
-    public void agregarLibro() {
-        listaLibro.add(getLibro());
-        libro = new Libro();
-    }
-
-    public void buscarLibroPorAutor(){
-        
-        System.out.println(autorBuscado);
-        listaLibroBuscado = new ArrayList<>();
-        for(Libro l:listaLibro){
-            if(autorBuscado.equals(l.getAutor())){
-                System.out.println("agregado");
-                listaLibroBuscado.add(l);
-            }
-        }
-        listaLibro = listaLibroBuscado;
+    public GestorLibro() {
+        // libro=new Libro(); sino se instancia sale nullpointer
+        libros = new ArrayList();
+        librosBuscados = new ArrayList();
+         libros.add(new Libro("A123", "Harry Potter", "J.K.Rowling", 712));
+        libros.add(new Libro("B777", "Games of Thrones", "George R.R.Martin", 4520));
+        libros.add(new Libro("C453", "Soy Leyenda", "Richard Matheson", 320));
     }
     
-    
-    
-    
-    
-    
-    
-    public ArrayList<Libro> getListaLibroBuscado() {
-        return listaLibroBuscado;
+    public void addUnLibro(Libro unLibro) {
+        libros.add(unLibro);
     }
-
-    public void setListaLibroBuscado(ArrayList<Libro> listaLibroBuscado) {
-        this.listaLibroBuscado = listaLibroBuscado;
-    }
+    
     
 
-    public String getAutorBuscado() {
-        return autorBuscado;
+    public void deleteUnLibro(Libro unLibro) {
+        libros.remove(unLibro);
     }
+       
 
-    public void setAutorBuscado(String autorBuscado) {
-        this.autorBuscado = autorBuscado;
-    }
-    
+    /**
+     * @return the libro
+     */
     public Libro getLibro() {
         return libro;
     }
+
+    /**
+     * @param libro the libro to set
+     */
     public void setLibro(Libro libro) {
         this.libro = libro;
     }
-    public ArrayList<Libro> getListaLibro() {
-        return listaLibro;
+
+    /**
+     * @return the libros
+     */
+    public List<Libro> getLibros() {
+        return libros;
     }
 
     /**
-     * @param listaLibro the listaLibro to set
+     * @param libros the libros to set
      */
-    public void setListaLibro(ArrayList<Libro> listaLibro) {
-        this.listaLibro = listaLibro;
+    public void setLibros(List<Libro> libros) {
+        this.libros = libros;
     }
+
+    /**
+     * @return the librosBuscados
+     */
+    public List<Libro> getLibrosBuscados() {
+        return librosBuscados;
+    }
+
+    /**
+     * @param librosBuscados the librosBuscados to set
+     */
+    public void setLibrosBuscados(List<Libro> librosBuscados) {
+        this.librosBuscados = librosBuscados;
+    }
+    
+    
 }

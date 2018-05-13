@@ -6,22 +6,51 @@
 package punto5.aplicacion.modelo.dominio;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
  * @author Lore
  */
 public class Profesor implements Serializable{
-
-    private String legajo;
+  private String legajo;
     private String nombre;
     private String apellido;
-    
+    private int dni;
+    private Date fechaNacimiento;
+   
     
     public Profesor() {
     }
 
-    /**
+    public Profesor(String legajo, String nombre, String apellido, int dni, Date fechaNacimiento) {
+        this.legajo = legajo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+
+  
+    
+    
+
+@Override
+    
+ public String toString() {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        
+        return "Legajo: " + legajo +
+                "Nombre: " + nombre +
+                " Apellido: " + apellido +
+                "Dni: " + getDni() +
+                "FechaNacimiento: " + getFechaNacimiento();
+    } 
+ 
+ 
+ /**
      * @return the legajo
      */
     public String getLegajo() {
@@ -62,6 +91,36 @@ public class Profesor implements Serializable{
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    
+
+    /**
+     * @return the dni
+     */
+    public int getDni() {
+        return dni;
+    }
+
+    /**
+     * @param dni the dni to set
+     */
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    /**
+     * @return the fechaNacimiento
+     */
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    /**
+     * @param fechaNacimiento the fechaNacimiento to set
+     */
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+   
+   
 }
 
