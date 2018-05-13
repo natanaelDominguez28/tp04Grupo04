@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Punto 5 Practico 4</title>
+    </h:head>
+    <h:body>
+        <p:panel id="pnlPanel" header= "Registro de Profesores">  
+            <h:form id="frmRegistroProfesor">
+                    <h:panelGrid id="tblFormularioProfesor" columns="2">
+                        <p:outputLabel value="Legajo:" for="txtLegajo"/>
+                        <p:inputText id="txtLegajo" required="true"
+                                     value="#{profeFormBean.gestor.profesor.legajo}"/>
+                                
+                        <p:outputLabel value="Nombre:" for="txtNombre"/>
+                        <p:inputText id="txtNombre" required="true"
+                                     value="#{profeFormBean.gestor.profesor.nombres}"/>
+                                     
+                        <p:outputLabel value="Apellido:" for="txtApellido"/>
+                        <p:inputText id="txtApellido" required="true"
+                                     value="#{profeFormBean.gestor.profesor.apellido}"/>
+                                         
+                        <p:commandButton id="btnRegistrarProfesor" value="Registrar"
+                                         onclick="PF('dlg1').show();"
+                                         update=""/>
+                        
+                        <p:dialog id="aa"  header="Basic Dialog" widgetVar="dlg1" modal="true" width="700" height="300">
+                           <h:panelGrid columns="2">
+                            <h:outputLabel value="Legajo Registrado:  "/>
+                            <h:outputLabel value="#{profeFormBean.gestor.profesor.legajo}"/>
+                            <h:outputLabel value="Nombre Registrado:  "/>
+                            <h:outputLabel value="#{profeFormBean.gestor.profesor.nombres}"/>
+                            <h:outputLabel value="Apellido Registrado:  "/>
+                            <h:outputLabel value="#{profeFormBean.gestor.profesor.apellido}"/> 
+                           </h:panelGrid> 
+                        </p:dialog>
+                </h:panelGrid>
+            </h:form>
+        </p:panel>
+        <br />
+    </h:body>
+</html>
+
