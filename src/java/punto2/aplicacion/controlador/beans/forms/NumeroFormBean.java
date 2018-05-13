@@ -5,10 +5,10 @@
  */
 package punto2.aplicacion.controlador.beans.forms;
 
+import punto2.aplicacion.modelo.util.ListaDeNumero;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-import javax.faces.view.ViewScoped;
-import punto2.aplicacion.modelo.util.ListaDeNumero;
+import javax.faces.bean.ViewScoped;
 
 /**
  *
@@ -16,50 +16,48 @@ import punto2.aplicacion.modelo.util.ListaDeNumero;
  */
 @ManagedBean
 @ViewScoped
-public class NumeroFormBean implements Serializable{
-    private ListaDeNumero lista;
-    private int numero;
+public class NumeroFormBean implements Serializable {
+    
+    private ListaDeNumero numeros;
+    private int num;
+    
     /**
      * Creates a new instance of NumeroFormBean
      */
     public NumeroFormBean() {
-        lista = new ListaDeNumero();
+        numeros = new ListaDeNumero();
     }
 
     public void registrarNumero(){
-       lista.agregarNumero(numero);
+        numeros.agregarNumero(num);
     }
     
     public int obtenerMayor(){
-        return lista.calcularMayor();
+        return numeros.calcularMayor();
     }
     
     public int obtenerMenor(){
-        return lista.calcularMenor();
+        return numeros.calcularMenor();
     }
     
     public double obtenerPromedio(){
-        return lista.calcularPromedio();
+        return numeros.calcularPromedio();
+    }
+    public ListaDeNumero getNumeros() {
+        return numeros;
     }
 
-    public int getNumero() {
-        return numero;
+    public void setNumeros(ListaDeNumero numeros) {
+        this.numeros = numeros;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-    
-
-    public ListaDeNumero getLista() {
-        return lista;
+    public int getNum() {
+        return num;
     }
 
-    public void setLista(ListaDeNumero lista) {
-        this.lista = lista;
+    public void setNum(int num) {
+        this.num = num;
     }
-    
-    
     
     
 }

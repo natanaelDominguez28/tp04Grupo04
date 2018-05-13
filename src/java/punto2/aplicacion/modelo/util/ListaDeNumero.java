@@ -5,34 +5,35 @@
  */
 package punto2.aplicacion.modelo.util;
 
+import punto2.aplicacion.modelo.dominio.Numero;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import punto2.aplicacion.modelo.dominio.Numero;
 
 /**
  *
  * @author natan
  */
 public class ListaDeNumero implements Serializable{
-    List<Numero> numeros;
-    Numero n;
-    
-    
-    public ListaDeNumero() {
-        numeros = new ArrayList<>();
-        n = new Numero();
+    List<Numero> listaDeNumero;
+
+    public ListaDeNumero(List<Numero> listaDeNumero) {
+        this.listaDeNumero = listaDeNumero;
     }
 
+    public ListaDeNumero() {
+        listaDeNumero = new ArrayList<>();
+    }
+    
     public void agregarNumero(int valor){
-        numeros.add(new Numero(valor));
+        listaDeNumero.add(new Numero(valor));
     }
     
     public int calcularMayor(){
         int mayor=0;
-        for(int i=1;i<numeros.size();i++){
-            if(mayor<numeros.get(i).getValor()){
-                mayor=numeros.get(i).getValor();
+        for(int i=1;i<listaDeNumero.size();i++){
+            if(mayor<listaDeNumero.get(i).getNumero()){
+                mayor=listaDeNumero.get(i).getNumero();
             }
         }
         return mayor;
@@ -40,10 +41,10 @@ public class ListaDeNumero implements Serializable{
     
     public int calcularMenor(){
         int menor=0;
-        for(int i=1;i<numeros.size();i++){
-            menor=numeros.get(0).getValor();
-            if(numeros.get(i).getValor()<menor){
-                menor=numeros.get(i).getValor();
+        for(int i=1;i<listaDeNumero.size();i++){
+            menor=listaDeNumero.get(0).getNumero();
+            if(listaDeNumero.get(i).getNumero()<menor){
+                menor=listaDeNumero.get(i).getNumero();
             }
         }
         return menor;
@@ -52,28 +53,25 @@ public class ListaDeNumero implements Serializable{
     public double calcularPromedio(){
         double promedio=0.0;
         double suma=0.0;
-        for(int i=0;i<numeros.size();i++){
-            suma=suma+numeros.get(i).getValor();
-            promedio=suma/numeros.size();
+        for(int i=0;i<listaDeNumero.size();i++){
+            suma=suma+listaDeNumero.get(i).getNumero();
+            promedio=suma/listaDeNumero.size();
         }
         
         return promedio;
     }
+
+    public List<Numero> getListaDeNumero() {
+        return listaDeNumero;
+    }
+
+    public void setListaDeNumero(List<Numero> listaDeNumero) {
+        this.listaDeNumero = listaDeNumero;
+    }
     
-    public List<Numero> getNumeros() {
-        return numeros;
-    }
+    
+    
 
-    public void setNumeros(List<Numero> numeros) {
-        this.numeros = numeros;
-    }
-
-    public Numero getN() {
-        return n;
-    }
-
-    public void setN(Numero n) {
-        this.n = n;
-    }
-
+    
+    
 }

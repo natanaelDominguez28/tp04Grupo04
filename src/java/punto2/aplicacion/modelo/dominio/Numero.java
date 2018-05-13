@@ -12,21 +12,23 @@ import java.io.Serializable;
  * @author natan
  */
 public class Numero implements Serializable{
-    private int valor;
+    private int numero;
 
-    public Numero(int valor) {
-        this.valor = valor;
+    public Numero(int numero) {
+        this.numero = numero;
     }
 
     public Numero() {
     }
- 
-    public int getValor() {
-        return valor;
+    
+    
+
+    public int getNumero() {
+        return numero;
     }
 
-    public void setValor(int valor) {
-        this.valor = valor;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
     
     

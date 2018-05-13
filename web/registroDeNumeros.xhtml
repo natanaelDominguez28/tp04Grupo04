@@ -4,41 +4,33 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Registo de Numero</title>
+        <title>Registro de Numeros</title>
     </h:head>
     <h:body>
-        <p:panel id="pnlRegistroDeNumero" header="REGISTRO DE NÚMEROS">
-            <h:form id="frmNumeros">
-                <p:panelGrid id="tblNumero" columns="2">
-                    <p:outputLabel id="lblNumero" value="Ingrese un número: "/>
-                    <p:inputNumber id="txtNumero" thousandSeparator="." 
-                                   decimalPlaces="2" decimalSeparator=","
-                                   value="#{numeroFormBean.numero}"/>
-                    <p:outputLabel/>
-                    <p:commandButton id="btnRegistrarNumero" value="GUARDAR NÚMERO"
-                                     action="#{numeroFormBean.registrarNumero()}"
-                                     update="tblNumeroRegistrado"/>
+        <p:panel id="pnlRegistro" header="Registro de Numeros">
+            <h:form id="frmRegistro" >
+                <p:panelGrid id="tblRegistro" columns="2">
+                    <p:outputLabel id="lblNumero" value="Ingrese un número"/>
+                    <p:inputNumber id="txtNumero" value="#{numeroFormBean.num}"/>
+
+                    <p:commandButton id="btnRegistrar" value="GUARDAR" update="dgNumeroRegistrado" action="#{numeroFormBean.registrarNumero()}"/>
                 </p:panelGrid>
                 <p:separator/>
+                <p:dataGrid id="dgNumeroRegistrado" var="num" value="#{numeroFormBean.numeros.listaDeNumero}" columns="1">
+                    <p:outputLabel id="lblNumeroRegistrado" value="Número: #{num.numero}"/>
 
-                <p:dataGrid id="tblNumeroRegistrado" var="num" value="#{numeroFormBean.lista.numeros}" columns="1">
-                    <p:outputLabel id="lblNumeroRegistrado" value="número: #{num.valor}"/>
+
                 </p:dataGrid>
-                <p:separator/>
                 <p:panelGrid id="pnlMayorMenorYpromedio" columns="2">
                     <p:commandButton id="btnCalcularMayor" value="MAYOR" update="lblMayor" />
-
                     <p:outputLabel id="lblMayor" value="El mayor es: #{numeroFormBean.obtenerMayor()}"/>
+
                     <p:commandButton id="btnCalcularMenor" value="MENOR" update="lblMenor"/>
-
                     <p:outputLabel id="lblMenor" value="El menor es: #{numeroFormBean.obtenerMenor()}"/>
-                    <p:commandButton id="btnCalcularPromedio" value="PROMEDIO" update="lblPromedio"  />
 
+                    <p:commandButton id="btnCalcularPromedio" value="PROMEDIO" update="lblPromedio"  />
                     <p:outputLabel id="lblPromedio" value="El promedio es: #{numeroFormBean.obtenerPromedio()}"/>
                 </p:panelGrid>
-
-
-
             </h:form>
         </p:panel>
     </h:body>
