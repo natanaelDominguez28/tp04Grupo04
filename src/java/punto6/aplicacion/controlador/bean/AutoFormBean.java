@@ -17,13 +17,13 @@ import punto6.aplicacion.modelo.dominio.Auto;
  */
 @ManagedBean
 @ViewScoped
-public class AutoFomBean {
+public class AutoFormBean {
 
     private Auto auto;
     private List<Auto> listaAutos;
     private List<Auto> listaResultado;
 
-    public AutoFomBean() {
+    public AutoFormBean() {
         auto = new Auto();
         listaAutos = new ArrayList<Auto>();
         listaResultado = new ArrayList<Auto>();
